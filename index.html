@@ -1,67 +1,110 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DegiSwap - منصة DeFi الاحترافية</title>
+    <title>DeguSwap - منصة التبادل الاحترافية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- الخلفية المتحركة -->
-    <div class="animated-bg"></div>
-    
-    <!-- الشريط العلوي -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <h2>DegiSwap</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#swap">المبادلة</a></li>
-                <li><a href="#liquidity">السيولة</a></li>
-                <li><a href="#farm">الفارمينغ</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- الخلفية الدخانية -->
+    <div class="smoke-bg">
+        <div class="smoke-particle"></div>
+        <div class="smoke-particle"></div>
+        <div class="smoke-particle"></div>
+    </div>
 
-    <!-- قسم الهيرو -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>مرحباً بك في <span>DegiSwap</span></h1>
-            <p>منصة DeFi متطورة للمبادلة والتداول</p>
-            <button class="cta-button">ابدأ التداول</button>
-        </div>
-    </section>
-
-    <!-- قسم المبادلة -->
-    <section class="swap-section" id="swap">
+    <!-- الهيدر -->
+    <header class="header">
         <div class="container">
-            <h2>مبادلة العملات</h2>
-            <div class="swap-box">
-                <div class="input-group">
-                    <label>من:</label>
-                    <input type="number" placeholder="0.0" class="token-input">
-                    <select class="token-select">
-                        <option>ETH</option>
-                        <option>USDT</option>
-                        <option>BNB</option>
-                    </select>
+            <!-- الشعار في اليسار -->
+            <div class="logo">
+                <h1 class="logo-text">DeguSwap</h1>
+                <div class="pulse-line"></div>
+            </div>
+
+            <!-- القائمة في اليمين -->
+            <div class="header-right">
+                <!-- قائمة الشبكات -->
+                <div class="networks">
+                    <button class="network-btn active">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiNGRjY2NjYiLz4KPC9zdmc+" alt="ETH">
+                        Ethereum
+                    </button>
+                    <button class="network-btn">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiNGRkQ0MDAiLz4KPC9zdmc+" alt="BNB">
+                        BNB
+                    </button>
+                    <button class="network-btn">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiM4QjVFRUEiLz4KPC9zdmc+" alt="Polygon">
+                        Polygon
+                    </button>
                 </div>
-                <div class="swap-arrow">↓</div>
-                <div class="input-group">
-                    <label>إلى:</label>
-                    <input type="number" placeholder="0.0" class="token-input">
-                    <select class="token-select">
-                        <option>USDT</option>
-                        <option>ETH</option>
-                        <option>BNB</option>
-                    </select>
-                </div>
-                <button class="swap-button">مبادلة</button>
+
+                <!-- زر المحفظة -->
+                <button class="connect-wallet">
+                    🦊 Connect Wallet
+                </button>
             </div>
         </div>
-    </section>
+    </header>
+
+    <!-- قسم التبادل الرئيسي -->
+    <main class="main">
+        <div class="container">
+            <!-- صندوق التبادل -->
+            <div class="swap-box">
+                <!-- العنوان مع تأثير التوهج -->
+                <div class="swap-header">
+                    <h2 class="swap-title">Swap</h2>
+                </div>
+
+                <!-- من -->
+                <div class="input-section">
+                    <div class="input-label">From</div>
+                    <div class="input-group">
+                        <input type="number" placeholder="0.0" class="amount-input">
+                        <div class="token-selector">
+                            <select class="token-select">
+                                <option>ETH</option>
+                                <option>USDT</option>
+                                <option>BNB</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- أزرار النسب -->
+                    <div class="percentage-buttons">
+                        <button class="percent-btn">10%</button>
+                        <button class="percent-btn">25%</button>
+                        <button class="percent-btn">50%</button>
+                        <button class="percent-btn">75%</button>
+                        <button class="percent-btn max-btn">MAX</button>
+                    </div>
+                </div>
+
+                <!-- سهم التبادل -->
+                <div class="swap-arrow">↓</div>
+
+                <!-- إلى -->
+                <div class="input-section">
+                    <div class="input-label">To</div>
+                    <div class="input-group">
+                        <input type="number" placeholder="0.0" class="amount-input">
+                        <div class="token-selector">
+                            <select class="token-select">
+                                <option>USDT</option>
+                                <option>ETH</option>
+                                <option>BNB</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- زر التبادل -->
+                <button class="swap-button">Swap</button>
+            </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
