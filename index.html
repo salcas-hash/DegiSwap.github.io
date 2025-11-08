@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DegiSwap - منصة DeFi الاحترافية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- الخلفية المتحركة -->
+    <div class="animated-bg"></div>
+    
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>DegiSwap</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#swap">المبادلة</a></li>
+                <li><a href="#liquidity">السيولة</a></li>
+                <li><a href="#farm">الفارمينغ</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- قسم الهيرو -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>مرحباً بك في <span>DegiSwap</span></h1>
+            <p>منصة DeFi متطورة للمبادلة والتداول</p>
+            <button class="cta-button">ابدأ التداول</button>
+        </div>
+    </section>
+
+    <!-- قسم المبادلة -->
+    <section class="swap-section" id="swap">
+        <div class="container">
+            <h2>مبادلة العملات</h2>
+            <div class="swap-box">
+                <div class="input-group">
+                    <label>من:</label>
+                    <input type="number" placeholder="0.0" class="token-input">
+                    <select class="token-select">
+                        <option>ETH</option>
+                        <option>USDT</option>
+                        <option>BNB</option>
+                    </select>
+                </div>
+                <div class="swap-arrow">↓</div>
+                <div class="input-group">
+                    <label>إلى:</label>
+                    <input type="number" placeholder="0.0" class="token-input">
+                    <select class="token-select">
+                        <option>USDT</option>
+                        <option>ETH</option>
+                        <option>BNB</option>
+                    </select>
+                </div>
+                <button class="swap-button">مبادلة</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
