@@ -1,4 +1,4 @@
-/* إعدادات عامة */
+/* الإعدادات الأساسية */
 * {
     margin: 0;
     padding: 0;
@@ -7,35 +7,78 @@
 }
 
 body {
-    background: #1A1F36;
+    background: #000000;  /* خلفية سوداء */
     color: white;
+    min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-/* الخلفية المتحركة */
-.animated-bg {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* الخلفية الدخانية */
+.smoke-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-45deg, #2E5BFF, #00D4AA, #764ba2, #667eea);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    background: #000000;
     z-index: -1;
+    overflow: hidden;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.smoke-particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, rgba(139,0,0,0) 70%);
+    border-radius: 50%;
+    animation: floatSmoke 8s infinite linear;
 }
 
-/* الشريط العلوي */
-.navbar {
-    background: rgba(255, 255, 255, 0.1);
+.smoke-particle:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.smoke-particle:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    top: 60%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.smoke-particle:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+@keyframes floatSmoke {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translateY(0px) scale(1);
+    }
+    50% { 
+        opacity: 0.7;
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+/* الهيدر */
+.header {
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.3);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
@@ -43,143 +86,254 @@ body {
     z-index: 1000;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
 }
 
-.logo h2 {
-    color: #00D4AA;
-    font-size: 1.8rem;
+/* الشعار */
+.logo {
+    position: relative;
 }
 
-.nav-menu {
+.logo-text {
+    color: #FF0000;  /* أحمر قوي */
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000; }
+    to { text-shadow: 0 0 15px #FF3333, 0 0 30px #FF3333; }
+}
+
+.pulse-line {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FF0000, transparent);
+    margin-top: 5px;
+    animation: pulseLine 3s infinite;
+}
+
+@keyframes pulseLine {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* الجزء الأيمن من الهيدر */
+.header-right {
     display: flex;
-    list-style: none;
-    gap: 2rem;
+    align-items: center;
+    gap: 1rem;
 }
 
-.nav-menu a {
+/* قائمة الشبكات */
+.networks {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.network-btn {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
     color: white;
-    text-decoration: none;
-    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
 }
 
-.nav-menu a:hover {
-    color: #00D4AA;
+.network-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: rgba(255, 0, 0, 0.5);
 }
 
-/* قسم الهيرو */
-.hero {
-    height: 100vh;
+.network-btn.active {
+    background: rgba(255, 0, 0, 0.3);
+    border-color: #FF0000;
+}
+
+.network-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* زر المحفظة */
+.connect-wallet {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.connect-wallet:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+}
+
+/* المحتوى الرئيسي */
+.main {
+    padding-top: 120px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 0 2rem;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content h1 span {
-    color: #00D4AA;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.cta-button {
-    background: linear-gradient(135deg, #2E5BFF, #00D4AA);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-}
-
-/* قسم المبادلة */
-.swap-section {
-    padding: 5rem 0;
+/* صندوق التبادل */
+.swap-box {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
 }
 
-.container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.swap-section h2 {
+/* عنوان التبادل */
+.swap-header {
     text-align: center;
     margin-bottom: 2rem;
-    color: #00D4AA;
 }
 
-.swap-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.swap-title {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #FF0000, #FF6666, #FF0000);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: colorChange 3s ease-in-out infinite;
 }
 
-.input-group {
+@keyframes colorChange {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* مجموعة الإدخال */
+.input-section {
     margin-bottom: 1.5rem;
 }
 
-.input-group label {
-    display: block;
+.input-label {
+    color: #FF6666;
     margin-bottom: 0.5rem;
-    color: #00D4AA;
+    font-weight: bold;
 }
 
-.token-input, .token-select {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 10px;
+.input-group {
+    display: flex;
     background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 1rem;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
 }
 
+.amount-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.amount-input::placeholder {
+    color: #888;
+}
+
+.token-selector {
+    background: rgba(255, 0, 0, 0.2);
+    border-left: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.token-select {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.token-select option {
+    background: #000;
+    color: white;
+}
+
+/* أزرار النسب */
+.percentage-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.percent-btn {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: #FF6666;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+}
+
+.percent-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+.max-btn {
+    background: rgba(255, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+/* سهم التبادل */
 .swap-arrow {
     text-align: center;
     font-size: 2rem;
-    color: #00D4AA;
+    color: #FF0000;
     margin: 1rem 0;
+    animation: bounce 2s infinite;
 }
 
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* زر التبادل */
 .swap-button {
     width: 100%;
-    background: linear-gradient(135deg, #2E5BFF, #00D4AA);
+    background: linear-gradient(135deg, #FF0000, #CC0000);
     color: white;
     border: none;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 10px;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    border-radius: 15px;
     cursor: pointer;
+    font-weight: bold;
     transition: all 0.3s;
+    margin-top: 1rem;
 }
 
 .swap-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
 }
